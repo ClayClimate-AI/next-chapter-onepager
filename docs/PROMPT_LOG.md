@@ -543,3 +543,20 @@ trailing step easy to skip after the "real" commit.
   deployment — future pushes won't auto-update the live link without
   that wired up separately. Added the live link + a Netlify badge to
   README.md.
+- Pilot: "You can incorporate the Netlify link inside of the README as
+  well, now that it's been created, for easy access." Agent found the
+  link was already in README (added in the prior commit) but as plain
+  text, not clickable — converted it to a markdown link. This commit
+  (`e2ce540`) was made without a matching doc update, breaking the
+  Step 8 fix from Failure #3.
+- Pilot: "And make sure that all corresponding context documentation
+  has been updated and reflects the current changes and state." Agent
+  caught its own miss on `e2ce540` and backfilled this entry, logged
+  it as Failure #4 in `progress.md` (the Step 8 fix from Failure #3
+  had silently stopped applying once work moved to informal post-C4
+  requests), and updated `checkpoints.md`'s Step 8 text to state
+  explicitly that the fold-docs-into-commit rule isn't scoped to the
+  numbered unit loop. Also refreshed `progress.md`'s Snapshot, which
+  had gone stale (missing README, BUILD-ENGINE removal, and the
+  Netlify deploy). Separately caught `.netlify/` (local CLI state from
+  the deploy) sitting untracked with no `.gitignore` entry — added it.

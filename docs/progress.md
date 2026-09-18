@@ -13,10 +13,15 @@
   explained by the author in their own words" — that's demonstrated at
   the demo itself, not something to mark done in advance.
 - **Current gate**: C4 complete, repo reorganized, full audit run (see
-  "Repository structure" and "Final audit" below). Check-in gate open.
+  "Repository structure" and "Final audit" below). Post-C4 polish also
+  done: `README.md` added (with a P-I-O-F section mapped to the
+  assignment rubric), `BUILD-ENGINE.md` untracked from the repo, and
+  the site deployed live to Netlify. Check-in gate open.
 - **Next single action**: none required by SPEC.md's DoD. Remaining:
   the demo itself (Day 5), where "explainable in your own words" is
   proven live.
+- **Live link**: https://next-chapter-onepager.netlify.app (manual
+  snapshot deploy — see "Deployment" below).
 
 ## Deployment
 
@@ -203,6 +208,7 @@ decision (Unit 1).
 | 1 | `PROMPT_LOG.md` was agreed on during pre-build design (Q10) but never actually created, despite being referenced by SPEC.md/checkpoints.md/progress.md | During C1 loop for Action Item 1 — caught by Pilot asking "Where is the prompt history?" | File created retroactively, reconstructing the conversation chronologically from the start of the design session | No — self-evident fix, no tradeoff |
 | 2 | `PROMPT_LOG.md` fell behind a second time — updated through the missing-file catch, then not touched again through the entire C1→C2 loop for Unit 1 (approval, two amendments, CSS work, commit) | After Unit 1's commit and doc update, caught by Pilot asking "Have all proper context documentations been updated including the prompt log?" | Backfilled the missing entries; root cause fixed by adding `PROMPT_LOG.md` explicitly to checkpoints.md's Step 9 (living-doc update), since "update docs" alone wasn't specific enough to prevent recurrence | No — process fix captured directly in checkpoints.md, no separate ADR needed |
 | 3 | `progress.md`, `checkpoints.md`, and `PROMPT_LOG.md` were updated correctly on disk after every unit, but never actually committed to git after the Phase 0 commit (`7857612`) — the pushed repo carried none of that history through Unit 8 | Discovered while updating docs after CI's first pass; caught by the agent, not the Pilot, while about to mark another DoD item complete | Committed the full accumulated state (`7db5f33`) and pushed; root cause: doc updates were being treated as a step separate from the code commit instead of part of it | No — going forward, living-doc updates are folded into each unit's commit rather than left as a trailing step |
+| 4 | The Step 8 fix from Failure #3 (fold docs into the commit) held for every formal unit, but lapsed once C4 closed and work shifted to small ad-hoc polish requests (README rename, P-I-O-F section, Netlify deploy, clickable link) outside the numbered unit loop. Commit `e2ce540` (clickable link) shipped with no matching `PROMPT_LOG.md` entry | Caught by Pilot asking to confirm all context documentation reflects current state | Backfilled the missing `PROMPT_LOG.md` entry. Root cause: the Step 8 rule was written as part of the per-unit loop, so it silently stopped applying once the Pilot moved to informal post-C4 requests. Fix: the rule isn't scoped to "units" — it applies to every commit to this repo, formal loop or not | No — process fix is the note in this row plus reading checkpoints.md's Step 8 as unconditional, not phase-dependent |
 
 ## Amendments log
 

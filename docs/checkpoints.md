@@ -45,6 +45,11 @@ For each unfinished item in SPEC.md's Definition of Done:
    the action item and what was verified. Doc updates are never a
    trailing step done after the "real" commit; an uncommitted doc
    update does not count as done.
+
+   **This rule is not scoped to the numbered unit loop.** It applies
+   to every commit to this repo — including small ad-hoc requests made
+   after C4, outside any formal PIOF. "We're done with the loop" is
+   not a reason to skip it (see Failure log #4).
 9. **Check-in gate** — open floor for clarifying questions. If none,
    proceed.
 10. **Loop** — Agent PIOFs into the next unfinished SPEC.md DoD item.
