@@ -39,8 +39,10 @@ For each unfinished item in SPEC.md's Definition of Done:
    SPEC.md.
 8. **Gate C2** — on Pilot confirmation: one commit, using a naming
    convention that names the action item and what was verified.
-9. **Update living docs** — `progress.md` (and this file, if the gate
-   reference itself needs a note) updated to reflect the completed item.
+9. **Update living docs** — `progress.md` (Snapshot, DoD checklist, Unit
+   log), `PROMPT_LOG.md` (append every exchange since its last update,
+   not just a summary line), and this file if the gate reference itself
+   needs a note.
 10. **Check-in gate** — open floor for clarifying questions. If none,
     proceed.
 11. **Loop** — Agent PIOFs into the next unfinished SPEC.md DoD item.

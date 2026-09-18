@@ -188,3 +188,210 @@ design/grilling session.
   sections/CTA/JS in this unit).
 - Pilot flagged the missing `PROMPT_LOG.md` before responding to the
   PIOF — this file was created as a result (see "Caught mistake" above).
+- Pilot: "Approved" — C1 gate passed for the PIOF as scoped.
+- Agent implemented `index.html` (skeleton, headline "Your Past Doesn't
+  Get the Final Say", one-sentence description) and an empty
+  `styles.css`, and presented the draft copy for Pilot review, noting
+  the copy was a placeholder for the Pilot to own in their own words.
+- Pilot: "And make sure the proper context documents are being
+  sequentially updated." Agent confirmed it would commit → update docs
+  → check-in in that order going forward, and asked for explicit C2
+  confirmation before committing.
+- Pilot: "I'd like to make an amendment to the spec." Agent paused C2
+  per the amendment protocol.
+- **Amendment 1**: Pilot requested the site not be desktop-exclusive —
+  readability should also work on mobile, and be dynamic. Agent added
+  a responsive/dynamic layout requirement to SPEC.md's Outputs, DoD,
+  and Scope, and logged the amendment in `progress.md`.
+- Pilot: content/copy approved ("in agreement with my perspective and
+  empirical experience"), but flagged that formatting/styling across
+  all future implementations needs to be professionally structured
+  within one consistent theme throughout.
+- **Amendment 2**: Agent logged a standing requirement — one
+  consistent, professionally-formatted visual theme (typography,
+  spacing, color) applied uniformly across the whole page — added to
+  SPEC.md's Outputs and DoD, and to `progress.md`'s Amendments log.
+- Pilot: "Let's make the CSS adjustments first before the commit."
+  Agent implemented `styles.css`: a dark theme via CSS custom
+  properties (color, typography, spacing tokens), fluid responsive
+  type sizing with `clamp()`, and a `<main>` container capped at a
+  readable width. Updated `index.html` to wrap content in `<main>` to
+  match.
+- Pilot: "Remove all dashes from the text and use a font that stands
+  out more but is in conjunction with the consistent theme throughout."
+  Agent removed the em dash from the description (restructured as one
+  comma-joined sentence) and added a font pairing — Fraunces (serif
+  display) for the headline, Inter (sans) for body text — loaded via
+  Google Fonts, coordinated with the existing dark/gold theme. Agent
+  flagged that Google Fonts introduces an external network dependency,
+  which cuts against the earlier zero-dependency/L0-L1-skip decision,
+  and asked whether to keep it or switch to a system-font pairing.
+- Pilot: "It's simple and the Google fonts work for me." Kept as-is.
+- Agent asked for final confirmation to commit; Pilot: "Commence the
+  commit with the proper naming convention."
+- Agent found `Screenshot 2026-09-16 at 9.58.54 PM.png`, `image.png`,
+  and `.cursor/` untracked and flagged them as local reference/tooling
+  material rather than deliverable content, recommending a
+  `.gitignore` to exclude them from the public repo. Pilot: "Recommendation
+  granted." Agent created `.gitignore`.
+- Agent made two atomic commits: Phase 0 setup/process docs
+  (`7857612`), then Unit 1 implementation — headline, description,
+  responsive theme (`6bb70c1`). Updated `progress.md`'s Snapshot, DoD
+  checklist, and Unit log to reflect C2 completion, then opened the
+  check-in gate.
+- Pilot: "Have all proper context documentations been updated including
+  the prompt log?" — caught that `PROMPT_LOG.md` had fallen behind
+  again (stopped mid-Action-Item-1). This entry is the fix.
+
+## Caught mistake #2 (logged per SPEC.md DoD)
+
+**What happened**: `PROMPT_LOG.md` fell behind a second time — last
+updated through the missing-file catch, then not touched again through
+approval, two SPEC amendments, CSS work, font/dash changes, and the
+Unit 1 commit + doc update.
+
+**Fix**: Backfilled the missing entries. Root cause addressed directly:
+`checkpoints.md`'s Step 9 ("update living docs") now explicitly names
+`PROMPT_LOG.md` and requires appending every exchange since its last
+update, not just a summary line, so this can't silently recur the same
+way again.
+
+Pilot's response: this counts as a serious natural catch in its own
+right — not a substitute for the intentional post-build stress test
+still owed under SPEC.md's DoD (per the original "let's go with both"
+answer), but worth recording prominently given how directly a lapsed
+prompt log undermines the entire premise of the project.
+
+### Action Item 2 — Section 1: The Barrier
+
+- Agent stated PIOF for Section 1: add one `<section>` inside `<main>`
+  after the existing headline/description, naming the mental/societal
+  barriers (stigma, hopelessness, limited options, guilt) per SPEC.md
+  Flow §2, styled using only the existing theme tokens.
+- Pilot: "Yes." — C1 approved.
+- Agent implemented the section ("The Weight That Keeps You Stuck"),
+  drawing directly on the Pilot's described experience: job rejection
+  despite qualification, guilt, stigma around interest in tech/AI,
+  imposter syndrome, hopelessness. Styled with the existing Fraunces/
+  Inter/dark-gold theme tokens, no new theme introduced.
+- Pilot: "Yes." — content approved, C2 confirmed.
+- Agent committed (`140c6a9`) and updated `progress.md` (Snapshot, Unit
+  log) accordingly.
+
+### Action Item 3 — Section 2: The Reframe
+
+- Agent stated PIOF for Section 2: tell the author's own story as proof
+  change is possible, per SPEC.md Flow §3, ending with direct address
+  to the reader; asked what level of detail the Pilot wanted before
+  drafting copy.
+- Pilot: "yes It does." — C1 approved, no additional detail guidance
+  given.
+- Agent implemented the section ("I Know Because I Lived It"):
+  incarceration, job rejection despite qualification, substance abuse
+  and mental health struggle, the turning point of choosing to change
+  and enrolling in NextChapter, ending with "If you're reading this and
+  you recognize yourself in it, you're not stuck. You're just not
+  moving yet." Reused existing section styling, no new CSS.
+- Pilot: "Yes, this directly correlates with my personal experience." —
+  C2 confirmed.
+- Agent committed (`ae6aa39`) and updated `progress.md` (Snapshot, Unit
+  log) accordingly.
+
+### Action Item 4 — Section 3: The Ask + CTA
+
+- Agent stated PIOF for Section 3: the closing self-reflection prompt
+  and the single CTA ("Start your next chapter" →
+  nextchapterproject.org), per SPEC.md Flow §4-5, and asked whether the
+  CTA should look like a button or a plain styled link.
+- Pilot: "This matches the specification." — C1 approved; no explicit
+  button/link preference given.
+- Agent implemented Section 3 ("Are You Ready?") and styled the CTA as
+  a filled accent-color button using existing theme tokens, completing
+  all three sections and the one CTA.
+- Pilot: requested one addition — the closing line should say not only
+  that showing up is about deciding you're done waiting for
+  permission, but also that you're ready to put in the work. Agent
+  updated the line accordingly.
+- Pilot: "Good for C2, commit it." Agent committed (`e00a35c`) and
+  updated `progress.md` (Snapshot, DoD checklist, Unit log) — all three
+  structural DoD items (3 sections, 1 CTA, no JS) now satisfied.
+
+### Unit 5 — CTA styling refinements
+
+- Pilot: "Let's make the call to action button center-aligned." Agent
+  changed `.cta` to `display: block; width: fit-content; margin-inline:
+  auto;`.
+- Pilot: "And let's give it some more margin top." Agent added
+  `margin-top: var(--space-md)`.
+- Pilot: "Let's give some more space in between the paragraph element
+  and the call to action button. Let's make the space instead of space
+  medium, we can do space large and see what that looks like." Agent
+  found the file had already been changed on disk to
+  `margin-top: var(--space-lg)` (flagged by the harness as an external
+  change) — confirmed it already matched the request, no further edit
+  needed.
+- Pilot: "The button needs to be lower for the call to action." Agent
+  added a new `--space-xl: 6rem` token to the existing spacing scale
+  and applied it as `.cta`'s `margin-top`.
+- Pilot: "Can we put more of a border radius around the call to action
+  button." Agent set `border-radius: 0.75em` (from `0.25em`).
+- Pilot: "Increase the border radius to one rem." Agent set
+  `border-radius: 1rem`.
+- Pilot: "Try 1.25em for the border radius." Agent set
+  `border-radius: 1.25em`.
+- Pilot: "That works, nothing special, just keeping it simple." — C2
+  confirmed for the full batch (centering, spacing token, radius).
+  Agent committed (`a8ff07e`) and updated `progress.md` (Snapshot, Unit
+  log) accordingly.
+
+### Unit 6 — Theme switch: dark to light/warm
+
+- Pilot: "And can we go with a lighter more Welcoming Page, theme, and
+  colour." Agent replaced the dark palette with a light, warm one
+  (cream background, warm dark-brown text, terracotta accent) via the
+  existing CSS custom properties, so it propagated uniformly across
+  headline, sections, and CTA with no per-element edits. Added a new
+  `--color-on-accent` token for the CTA's text color, since reusing
+  `--color-bg` (as in the dark theme) would have broken contrast once
+  the background flipped from dark to light.
+- Pilot: "I've evaluated it in terms of the visibility and it looks
+  pretty good. It's very simple, nothing too extravagant, reads a bit
+  better than the whole dark theme." — C2 confirmed.
+- Agent committed (`6c34985`) and updated `progress.md` (Snapshot, Unit
+  log) accordingly.
+
+### Action Item 5 / Unit 7 — Local structural check script
+
+- Pilot: "Nope, I think we're good. Let's go ahead and move into that
+  phase of the process." Agent stated PIOF for `check.sh`: a
+  zero-dependency POSIX shell + grep script checking headline, 3
+  sections, 1 CTA link, no `<script>` tags, no extra HTML pages.
+- Pilot: "Scope confirmed" — C1 approved.
+- Agent implemented `check.sh`, made it executable, and ran it — all
+  five checks passed.
+- Pilot shared a screenshot of running the same script with identical
+  passing output.
+- Agent committed (`de4af11`, executable bit tracked) and updated
+  `progress.md` (Snapshot, DoD checklist, Unit log) accordingly.
+
+### Action Item 6 / Unit 8 — CI workflow
+
+- Pilot: "No questions at this point in time." Agent stated PIOF for
+  `.github/workflows/ci.yml`: checkout + run `check.sh` on push/PR,
+  Tier 1 only (no installs, matrix, or deploy step), per the earlier
+  CI-trim decision.
+- Pilot: "yes" — C1 approved.
+- Agent implemented the workflow file, noted CI hasn't actually run
+  yet since nothing's been pushed to the remote, and asked whether to
+  push now or hold.
+- Pilot: "y" — C2 confirmed for the commit. Agent committed
+  (`22af4fa`) and updated `progress.md` (Snapshot, Unit log)
+  accordingly. Push timing still needs an explicit Pilot decision
+  before CI can actually execute.
+- Pilot: "Let's go ahead and push now." Agent set the branch to `main`
+  and pushed all 8 commits to `origin/main`. `gh` wasn't authenticated
+  in this environment, so agent asked the Pilot to check the Actions
+  tab directly.
+- Pilot shared a screenshot: CI run #1 (commit `22af4fa`) passed, green
+  checkmark, 13s, on `main`. Agent updated `progress.md` (Snapshot, DoD
+  checklist, Unit log) to record the objective CI pass.
