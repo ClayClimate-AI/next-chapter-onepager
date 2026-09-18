@@ -441,3 +441,11 @@ trailing step easy to skip after the "real" commit.
   SPEC.md's Scope section warns against); no action needed for
   security or the CI workflow. Marked the DoD's mistake-catching and
   sub-agent-verifier items complete.
+- Pilot: "The contrast defect is not really a concern. design
+  implementation on this is just something that we're keeping at a
+  minimum, so there's no need to address that matter further." Agent
+  logged this as an explicit accepted-tradeoff decision in
+  `progress.md` (not silently dropped, not treated as fixed) and
+  updated the Snapshot: all build-side DoD items are now either
+  checked or explicitly accepted, with only the demo-time
+  "explainable in your own words" item remaining by nature.

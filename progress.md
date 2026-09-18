@@ -7,11 +7,16 @@
 ## Snapshot
 
 - **Stage**: Sub-agent verifier pass complete (see "Sub-agent verifier
-  findings" below). One real defect found (CTA contrast); fix pending
-  as the next unit.
-- **Current gate**: Verifier pass done; check-in gate open. Fix not yet
-  committed.
-- **Next single action**: PIOF into fixing the CTA contrast defect.
+  findings" below). All build-side DoD items are now checked or
+  explicitly accepted as a documented tradeoff. One DoD item remains
+  by nature un-checkable by the agent: "every part of the page can be
+  explained by the author in their own words" — that's demonstrated at
+  the demo itself, not something to mark done in advance.
+- **Current gate**: Verifier pass done; CTA contrast finding accepted
+  (not fixed) per Pilot decision. Check-in gate open.
+- **Next single action**: C4 — Pilot decision on whether to run the
+  dynamic reflection interview (`reflections.md`) now, or continue
+  with more units first.
 
 ## DoD checklist (mirrors SPEC.md)
 
@@ -60,7 +65,10 @@ consistent theme, local check + CI both green).
   little, since the bottleneck is the accent's mid-range lightness).
   A shade around `#96491c` brings contrast to ~6.2:1, comfortably
   clearing AA without changing the palette's warm/terracotta identity.
-  Scheduled as the next unit.
+- **Decision: accepted, not fixed.** Pilot's call — the visual design
+  is being deliberately kept minimal for this project, and this isn't
+  worth further design iteration. Logged here as a known, intentional
+  tradeoff rather than an unresolved defect.
 
 **Finding 2 — `check.sh` latent edge cases (not currently triggered)**
 - **What**: (a) `grep -c` counts matching *lines*, not tag
