@@ -48,6 +48,20 @@ p {
   margin: 0 0 var(--space-md);
 }
 
+section {
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-surface);
+}
+
+section h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+  line-height: 1.25;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+}
+
 @media (max-width: 30rem) {
   main {
     padding: var(--space-md) var(--space-sm);
