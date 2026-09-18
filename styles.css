@@ -11,6 +11,7 @@
   --space-sm: 1rem;
   --space-md: 2rem;
   --space-lg: 4rem;
+  --space-xl: 6rem;
 
   --content-max: 42rem;
 }
@@ -63,7 +64,10 @@ section h2 {
 }
 
 .cta {
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  margin-top: var(--space-xl);
   font-family: var(--font-base);
   font-weight: 500;
   font-size: 1rem;
@@ -71,7 +75,7 @@ section h2 {
   background: var(--color-accent);
   text-decoration: none;
   padding: 0.85em 1.75em;
-  border-radius: 0.25em;
+  border-radius: 1.25em;
   transition: opacity 0.15s ease;
 }
 
