@@ -12,11 +12,11 @@
   by nature un-checkable by the agent: "every part of the page can be
   explained by the author in their own words" — that's demonstrated at
   the demo itself, not something to mark done in advance.
-- **Current gate**: Verifier pass done; CTA contrast finding accepted
-  (not fixed) per Pilot decision. Check-in gate open.
-- **Next single action**: C4 — Pilot decision on whether to run the
-  dynamic reflection interview (`reflections.md`) now, or continue
-  with more units first.
+- **Current gate**: C4 complete — `reflections.md` written as a
+  verbatim Q&A transcript. Check-in gate open.
+- **Next single action**: none required by SPEC.md's DoD. Remaining:
+  the demo itself (Day 5), where "explainable in your own words" is
+  proven live.
 
 ## DoD checklist (mirrors SPEC.md)
 

@@ -449,3 +449,19 @@ trailing step easy to skip after the "real" commit.
   updated the Snapshot: all build-side DoD items are now either
   checked or explicitly accepted, with only the demo-time
   "explainable in your own words" item remaining by nature.
+
+### C4 — Dynamic reflection interview
+
+- Pilot: "Let's commence on to the reflections.md and let's keep it
+  short and simple." Agent asked four questions, each mapped to this
+  project's own record per BUILD-ENGINE.md §12 (comprehension; the
+  three Failure log entries; the CI run; reuse/consolidation), rather
+  than a generic fixed list.
+- Pilot answered all four in full, in their own words. Agent wrote
+  `reflections.md` as a verbatim Q&A transcript, unedited — no
+  paraphrasing or summarizing of the Pilot's answers, per BUILD-ENGINE's
+  rule that this transcript is the Pilot's authentic voice, not the
+  agent's.
+- This closes C4. SPEC.md's DoD is now fully satisfied or explicitly
+  accepted, except the demo-time "explainable in your own words" item,
+  which is proven live rather than in advance.
