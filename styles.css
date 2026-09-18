@@ -62,6 +62,24 @@ section h2 {
   color: var(--color-text);
 }
 
+.cta {
+  display: inline-block;
+  font-family: var(--font-base);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-bg);
+  background: var(--color-accent);
+  text-decoration: none;
+  padding: 0.85em 1.75em;
+  border-radius: 0.25em;
+  transition: opacity 0.15s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  opacity: 0.85;
+}
+
 @media (max-width: 30rem) {
   main {
     padding: var(--space-md) var(--space-sm);
