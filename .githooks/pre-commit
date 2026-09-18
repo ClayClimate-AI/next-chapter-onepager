@@ -1,0 +1,5 @@
+#!/bin/sh
+# Tier 2 (local pre-commit) of the verification pipeline in docs/BUILD-ENGINE.md.
+# Runs the same structural check as CI, before the commit is allowed.
+repo_root=$(git rev-parse --show-toplevel)
+sh "$repo_root/scripts/check.sh"

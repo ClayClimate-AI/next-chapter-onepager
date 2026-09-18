@@ -489,3 +489,25 @@ trailing step easy to skip after the "real" commit.
   flagged rather than silently fixed: no `README.md` at repo root, and
   BUILD-ENGINE.md's Tier 2 local pre-commit hook was discussed but
   never actually implemented (only Tier 1/CI exists).
+- Pilot shared a screenshot confirming CI #6 (commit `7172872`) passed
+  in 6s on the new `scripts/check.sh` path.
+- Pilot: "Yes, there should be a readme.md. Go ahead and give a
+  high-level overview... You don't need to elaborate much on the
+  internal build process because I'm still figuring that out. Make
+  sure that all the image files in the working directory are inside of
+  a subdirectory... Make sure all of the folders, documents, and files
+  that need to be in the gitignore are in the gitignore. And yes, we
+  did not touch on the local pre-commit hook so we can make an
+  amendment on that." Mid-turn: "And make sure that the README has the
+  appropriate badges. We don't need to overpopulate it." Also mid-turn:
+  "You can add text-based tree diagrams and call graphs in the README
+  if and where it may be appropriate."
+- Agent: moved the two local-reference images into `artifacts/`;
+  updated `.gitignore` to `artifacts/`, `.cursor/`, `.DS_Store`;
+  implemented the Tier 2 pre-commit hook as `.githooks/pre-commit`
+  (versioned) and activated it locally via
+  `git config core.hooksPath .githooks`; wrote `README.md` with one CI
+  status badge (kept minimal, no badge sprawl), a repo structure tree
+  diagram, and a small call graph showing where `scripts/check.sh`
+  runs (manual / pre-commit / CI) — no elaboration on the internal
+  BUILD-ENGINE methodology, per the Pilot's instruction.

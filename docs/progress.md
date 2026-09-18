@@ -56,25 +56,35 @@ Run against SPEC.md after the reorg:
 - **Structural DoD**: `scripts/check.sh` passes (5/5) — headline,
   exactly 3 sections, exactly 1 CTA to nextchapterproject.org, no JS,
   no extra pages.
-- **CI**: workflow file updated for the new script path; will be
-  confirmed on next push (asserted, not yet re-observed on a runner —
-  see check-in).
+- **CI**: confirmed green by Pilot screenshot — CI #6, commit
+  `7172872`, 6s, on the new `scripts/check.sh` path.
 - **Scope**: no features beyond SPEC.md's Outputs exist in the repo.
   No JS anywhere. No pages beyond `index.html`.
-- **Git history**: 13 commits, none rewritten or force-pushed; `git mv`
+- **Git history**: 14 commits, none rewritten or force-pushed; `git mv`
   used for the reorg so file history is preserved.
 - **Working tree**: clean; local root has no stray/untracked tracked-
   looking files.
-- **Two gaps found, not fixed** (flagged for Pilot decision, not
-  silently resolved):
-  1. **No `README.md`** at repo root. Not required by SPEC.md's DoD,
-     but a public repo with no README is unusual for anything meant to
-     be presented or shared — worth a short one before the demo.
-  2. **BUILD-ENGINE.md's Tier 2 (local git pre-commit hook)** was
-     discussed conceptually (checkpoints.md, the original CI decision)
-     but never actually implemented — only Tier 1 (CI) exists.
-     `scripts/check.sh` runs on demand and in CI, just not
-     automatically before every local commit.
+
+Both gaps from the previous audit pass are now closed:
+
+1. **README.md** — added at repo root: project overview, what's on the
+   page, tech, repo structure, verification (with a small call graph
+   of where `scripts/check.sh` runs), and a pointer to `docs/` for the
+   full process record. Deliberately does not elaborate on the
+   internal build methodology (Pilot is still refining that) — just
+   named and linked.
+2. **Tier 2 local pre-commit hook** — implemented as `.githooks/pre-commit`
+   (versioned, so it travels with the repo) running `scripts/check.sh`
+   before every local commit. Activated via
+   `git config core.hooksPath .githooks` (one-time, local to each
+   clone — git has no way to auto-activate a repo-tracked hooks path
+   without this). Documented in README's Verification section.
+
+Also moved the two local-reference images (course screenshot,
+instructor's test-pyramid image) into `artifacts/`, and updated
+`.gitignore` to `artifacts/` (directory-level, so anything dropped
+there stays out of the repo), `.cursor/`, and `.DS_Store` (preventive,
+none currently present).
 
 ## DoD checklist (mirrors SPEC.md)
 
