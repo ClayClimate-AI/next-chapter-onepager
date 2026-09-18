@@ -411,3 +411,33 @@ pushed. Root cause addressed in `checkpoints.md`'s per-unit loop:
 Step 8 (C2) now requires doc updates and the code commit to happen
 **together, in one commit**, rather than treating doc updates as a
 trailing step easy to skip after the "real" commit.
+
+### Action Item 7 — Sub-agent verifier pass
+
+- Pilot: "yes." Agent stated PIOF for dispatching an independent
+  subagent to review the build cold against SPEC.md's Verifier's
+  brief — structure, accessibility, security — with no auto-fixing;
+  findings would come back for Pilot review.
+- Pilot: "yes." — C1 approved.
+- Agent dispatched the subagent with SPEC.md's DoD, index.html,
+  styles.css, check.sh, and ci.yml as its inputs.
+- Subagent reported: all checkable DoD items pass. One real defect —
+  CTA text/background contrast (~3.9:1) fails WCAG AA's 4.5:1
+  threshold. Three latent, not-currently-triggered edge cases in
+  check.sh's grep logic. No realistic security risk for a zero-JS
+  static page beyond Google Fonts' inherent IP exposure (already
+  accepted in Unit 1). CI workflow correctly scoped, no findings.
+- Agent proposed this pass satisfies SPEC.md's DoD requirement for an
+  intentional post-build stress test (distinct from the two natural
+  catches).
+- Pilot: "Make sure that these results are adequately documented, and
+  presents recommendations, if any, for mitigating or resolving the
+  problem." Agent added a "Sub-agent verifier findings" section to
+  `progress.md` with a recommendation per finding: darken
+  `--color-accent` to ~`#96491c` (≈6.2:1 contrast) for Finding 1;
+  accept Finding 2's latent check.sh gaps as documented, out-of-scope
+  limitations rather than fix them (fixing hypothetical inputs that
+  don't exist in this project would itself be the over-engineering
+  SPEC.md's Scope section warns against); no action needed for
+  security or the CI workflow. Marked the DoD's mistake-catching and
+  sub-agent-verifier items complete.

@@ -6,13 +6,12 @@
 
 ## Snapshot
 
-- **Stage**: Unit 8 complete and CI-verified. Pushed to
-  `origin/main`; CI run #1 (commit `22af4fa`) passed in 13s on a clean
-  GitHub-hosted runner.
-- **Current gate**: C2 passed for Unit 8, CI objectively confirmed.
-  Check-in gate open.
-- **Next single action**: PIOF into the sub-agent verifier pass against
-  SPEC.md, then the intentional mistake-catching stress test.
+- **Stage**: Sub-agent verifier pass complete (see "Sub-agent verifier
+  findings" below). One real defect found (CTA contrast); fix pending
+  as the next unit.
+- **Current gate**: Verifier pass done; check-in gate open. Fix not yet
+  committed.
+- **Next single action**: PIOF into fixing the CTA contrast defect.
 
 ## DoD checklist (mirrors SPEC.md)
 
@@ -24,13 +23,72 @@
 - [x] One consistent, professionally-formatted visual theme applied
       uniformly across the whole page.
 - [ ] Every part of the page can be explained by the author in their own words.
-- [~] At least one AI mistake caught and documented (natural + intentional
-      stress test). Natural half satisfied twice over (see Failure log
-      #1, #2). Intentional post-build stress test still outstanding.
+- [x] At least one AI mistake caught and documented (natural + intentional
+      stress test). Natural half satisfied twice over, plus a third
+      process-gap catch (Failure log #1, #2, #3). Intentional stress
+      test satisfied by the sub-agent verifier pass — see "Sub-agent
+      verifier findings" below.
 - [x] `PROMPT_LOG.md` contains every prompt, pre-build and in-build.
 - [x] Local structural check script passes.
 - [x] Same checks pass in CI on push.
-- [ ] Sub-agent verifier has reviewed the finished build against SPEC.md.
+- [x] Sub-agent verifier has reviewed the finished build against SPEC.md.
+
+## Sub-agent verifier findings
+
+An independent subagent (no prior context on this build) reviewed
+`index.html`, `styles.css`, `check.sh`, and `.github/workflows/ci.yml`
+against `SPEC.md` only, per SPEC.md's Verifier's brief. This pass also
+satisfies SPEC.md's DoD requirement for an intentional, post-build
+stress test (as distinct from the two naturally-surfaced catches in
+the Failure log above).
+
+**DoD coverage**: every checkable item in SPEC.md's Definition of Done
+passes (headline/description, 3 sections matching Flow, 1 CTA with
+exact URL match and no `target="_blank"`, no JS, responsive layout,
+consistent theme, local check + CI both green).
+
+**Finding 1 — CTA contrast fails WCAG AA (real defect)**
+- **What**: `--color-on-accent` (`#fffaf3`) on `--color-accent`
+  (`#c1652c`) computes to ~3.9:1 contrast. WCAG AA requires 4.5:1 for
+  normal-weight text at this size (the button text doesn't qualify as
+  "large text").
+- **Why it matters**: low-vision or bright-screen readers may not be
+  able to read the one interactive element on the page — the CTA is
+  the entire point of the site.
+- **Recommendation**: darken `--color-accent` rather than lighten the
+  text further (lightening `--color-on-accent` toward pure white gains
+  little, since the bottleneck is the accent's mid-range lightness).
+  A shade around `#96491c` brings contrast to ~6.2:1, comfortably
+  clearing AA without changing the palette's warm/terracotta identity.
+  Scheduled as the next unit.
+
+**Finding 2 — `check.sh` latent edge cases (not currently triggered)**
+- **What**: (a) `grep -c` counts matching *lines*, not tag
+  *occurrences* — two `<h1>` tags on one line would still count as 1
+  and pass; (b) the script checks for literal `<script` but not inline
+  JS via event-handler attributes (e.g. `onclick=`); (c) the
+  no-extra-HTML-pages check only scans the repo root
+  (`find . -maxdepth 1`), not subdirectories.
+- **Why it matters**: none of these are triggered by the current
+  `index.html` — they're latent gaps in the check's rigor, not active
+  bugs.
+- **Recommendation**: accept as a documented, known limitation rather
+  than fix. Hardening `check.sh` against hypothetical inputs that don't
+  exist in this project would be exactly the over-engineering SPEC.md's
+  Scope & Constraints section was written to avoid. Revisit only if a
+  future edit to `index.html` would actually exercise one of these
+  gaps (e.g., adding a second `<h1>` on the same line, which no one
+  has proposed).
+
+**Security**: no realistic risk for this zero-JS static page (no
+forms, no user input, no inline scripts, no `target="_blank"`). Google
+Fonts is the only third party; its only associated exposure (visitor
+IP sent to Google on font load) is inherent to using the service at
+all, not a defect — accepted as-is per the earlier Google Fonts
+decision (Unit 1).
+
+**CI workflow**: correctly mirrors `check.sh`, properly scoped to Tier
+1 only, no scope creep found.
 
 ## Unit log
 
