@@ -1,4 +1,4 @@
-# Next Chapter
+# README — Next Chapter (Week 1 Project)
 
 ![CI](https://github.com/ClayClimate-AI/next-chapter-onepager/actions/workflows/ci.yml/badge.svg)
 
@@ -29,8 +29,7 @@ Static HTML + CSS only. No JavaScript, no build step, no framework. The only ext
     ├── checkpoints.md
     ├── progress.md
     ├── PROMPT_LOG.md
-    ├── reflections.md
-    └── BUILD-ENGINE.md
+    └── reflections.md
 ```
 
 ## Verification

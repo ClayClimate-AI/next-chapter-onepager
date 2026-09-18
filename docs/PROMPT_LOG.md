@@ -511,3 +511,16 @@ trailing step easy to skip after the "real" commit.
   diagram, and a small call graph showing where `scripts/check.sh`
   runs (manual / pre-commit / CI) — no elaboration on the internal
   BUILD-ENGINE methodology, per the Pilot's instruction.
+- Pilot: "You can take the build engine.md out. That doesn't need to be
+  pushed because we didn't use that in its entirety. And the README
+  just says next chapter. The readme should be named with a proper
+  context documentation naming convention." Agent: untracked
+  `docs/BUILD-ENGINE.md` (`git rm --cached`) and moved it to
+  `artifacts/` alongside the other local-only reference material,
+  since it was a reference methodology doc drawn from selectively, not
+  used in full; updated both structure-tree diagrams (README.md,
+  progress.md) to drop it from the listing. Renamed README.md's H1
+  from `# Next Chapter` to `# README — Next Chapter (Week 1 Project)`,
+  matching the `<Role> — <context>` naming convention used by every
+  other doc in `docs/` (SPEC, Checkpoints, Progress, Prompt Log,
+  Reflections).

@@ -25,20 +25,28 @@ itself and standard root-level config:
 
 ```
 /
+├── README.md
 ├── index.html          # the site
 ├── styles.css          # the site's styling
 ├── .gitignore
 ├── .github/workflows/ci.yml
+├── .githooks/pre-commit
 ├── docs/                # all process/context documentation
 │   ├── SPEC.md
 │   ├── checkpoints.md
 │   ├── progress.md
 │   ├── reflections.md
-│   ├── PROMPT_LOG.md
-│   └── BUILD-ENGINE.md
+│   └── PROMPT_LOG.md
 └── scripts/
     └── check.sh
 ```
+
+`BUILD-ENGINE.md` is intentionally not tracked in the repo — per Pilot
+decision, it's a reference methodology doc that was drawn from
+selectively, not used in its entirety, so it doesn't belong in the
+pushed deliverable. It remains local-only in `artifacts/` alongside
+the other reference material (course screenshot, instructor's
+test-pyramid image), gitignored the same way.
 
 Moved with `git mv` (history preserved as renames, not delete+recreate).
 `.github/workflows/ci.yml` updated to call `scripts/check.sh` at its
