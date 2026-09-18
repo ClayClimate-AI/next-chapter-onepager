@@ -532,3 +532,14 @@ trailing step easy to skip after the "real" commit.
   this project's specifics and the exact assignment rubric line each
   satisfies, plus a small text-based flow diagram underneath for a
   quick visual read.
+- Pilot: "Y and go ahead and deploy this to Netlify so that I have a
+  shareable link to share with the group during presentation." Agent
+  checked existing Netlify projects (found one unrelated site, nothing
+  for this project), created a new site (`next-chapter-onepager`,
+  team `josephc1417`), and deployed the current working directory via
+  the Netlify MCP CLI proxy. Deploy succeeded (`state: ready`, 8s
+  build) at https://next-chapter-onepager.netlify.app. Flagged that
+  this was a one-time manual upload, not GitHub-connected continuous
+  deployment — future pushes won't auto-update the live link without
+  that wired up separately. Added the live link + a Netlify badge to
+  README.md.

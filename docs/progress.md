@@ -18,6 +18,15 @@
   the demo itself (Day 5), where "explainable in your own words" is
   proven live.
 
+## Deployment
+
+Live at **https://next-chapter-onepager.netlify.app** — deployed via
+the Netlify MCP CLI proxy as a one-time manual upload of the working
+directory (deploy id `6aad4794b0540ac4953c1863`, ready in 8s). This is
+a snapshot, not GitHub-connected continuous deployment: pushing new
+commits to `main` will not automatically update the live link unless
+continuous deployment is set up separately.
+
 ## Repository structure
 
 Reorganized so nothing sits loose in the root except the shipped site

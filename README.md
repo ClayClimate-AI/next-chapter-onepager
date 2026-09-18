@@ -1,6 +1,9 @@
 # README — Next Chapter (Week 1 Project)
 
 ![CI](https://github.com/ClayClimate-AI/next-chapter-onepager/actions/workflows/ci.yml/badge.svg)
+![Netlify](https://img.shields.io/badge/live-netlify-00C7B7?logo=netlify&logoColor=white)
+
+**Live**: https://next-chapter-onepager.netlify.app
 
 A one-page site for anyone who's been impacted by the justice system, or held back by stigma, guilt, fear, or imposter syndrome, at the point of deciding to change. It names the barriers that keep people stuck, shows through lived experience that change is possible, and points to one real next step.
 
