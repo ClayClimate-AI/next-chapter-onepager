@@ -524,3 +524,11 @@ trailing step easy to skip after the "real" commit.
   matching the `<Role> — <context>` naming convention used by every
   other doc in `docs/` (SPEC, Checkpoints, Progress, Prompt Log,
   Reflections).
+- Pilot: "Can you add a P I O F Mapped against the assignment criteria
+  in the README as well. However, you want to visualize that, be it a
+  graph or a diagram or text, is fine. I just want that to be clear."
+  Agent added a "P-I-O-F, mapped against the assignment criteria"
+  section to README.md: a table mapping Purpose/Inputs/Outputs/Flow to
+  this project's specifics and the exact assignment rubric line each
+  satisfies, plus a small text-based flow diagram underneath for a
+  quick visual read.
