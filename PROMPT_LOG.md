@@ -395,3 +395,19 @@ prompt log undermines the entire premise of the project.
 - Pilot shared a screenshot: CI run #1 (commit `22af4fa`) passed, green
   checkmark, 13s, on `main`. Agent updated `progress.md` (Snapshot, DoD
   checklist, Unit log) to record the objective CI pass.
+
+## Caught mistake #3 (logged per SPEC.md DoD)
+
+**What happened**: while updating docs after the CI pass, the agent
+discovered `progress.md`, `checkpoints.md`, and `PROMPT_LOG.md` had
+only ever been committed once, in the Phase 0 commit (`7857612`).
+Every update since (through Unit 8) existed correctly on disk but was
+never committed — the version pushed to GitHub carried none of that
+history. Caught by the agent itself, not the Pilot, while about to mark
+a DoD item complete.
+
+**Fix**: committed the full accumulated doc state (`7db5f33`) and
+pushed. Root cause addressed in `checkpoints.md`'s per-unit loop:
+Step 8 (C2) now requires doc updates and the code commit to happen
+**together, in one commit**, rather than treating doc updates as a
+trailing step easy to skip after the "real" commit.
