@@ -11,5 +11,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run structural checks
         run: |
-          chmod +x check.sh
-          ./check.sh
+          chmod +x scripts/check.sh
+          ./scripts/check.sh

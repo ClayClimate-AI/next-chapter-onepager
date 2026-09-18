@@ -12,11 +12,69 @@
   by nature un-checkable by the agent: "every part of the page can be
   explained by the author in their own words" — that's demonstrated at
   the demo itself, not something to mark done in advance.
-- **Current gate**: C4 complete — `reflections.md` written as a
-  verbatim Q&A transcript. Check-in gate open.
+- **Current gate**: C4 complete, repo reorganized, full audit run (see
+  "Repository structure" and "Final audit" below). Check-in gate open.
 - **Next single action**: none required by SPEC.md's DoD. Remaining:
   the demo itself (Day 5), where "explainable in your own words" is
   proven live.
+
+## Repository structure
+
+Reorganized so nothing sits loose in the root except the shipped site
+itself and standard root-level config:
+
+```
+/
+├── index.html          # the site
+├── styles.css          # the site's styling
+├── .gitignore
+├── .github/workflows/ci.yml
+├── docs/                # all process/context documentation
+│   ├── SPEC.md
+│   ├── checkpoints.md
+│   ├── progress.md
+│   ├── reflections.md
+│   ├── PROMPT_LOG.md
+│   └── BUILD-ENGINE.md
+└── scripts/
+    └── check.sh
+```
+
+Moved with `git mv` (history preserved as renames, not delete+recreate).
+`.github/workflows/ci.yml` updated to call `scripts/check.sh` at its
+new path; re-ran the script locally post-move to confirm it still
+passes from the new location before committing. Local working
+directory now matches the tracked repo structure exactly — the only
+things present locally but not in the repo are the three already-
+gitignored local-reference files (course screenshot, instructor image,
+`.cursor/`), which were always intentionally excluded.
+
+## Final audit (local + repository)
+
+Run against SPEC.md after the reorg:
+
+- **Structural DoD**: `scripts/check.sh` passes (5/5) — headline,
+  exactly 3 sections, exactly 1 CTA to nextchapterproject.org, no JS,
+  no extra pages.
+- **CI**: workflow file updated for the new script path; will be
+  confirmed on next push (asserted, not yet re-observed on a runner —
+  see check-in).
+- **Scope**: no features beyond SPEC.md's Outputs exist in the repo.
+  No JS anywhere. No pages beyond `index.html`.
+- **Git history**: 13 commits, none rewritten or force-pushed; `git mv`
+  used for the reorg so file history is preserved.
+- **Working tree**: clean; local root has no stray/untracked tracked-
+  looking files.
+- **Two gaps found, not fixed** (flagged for Pilot decision, not
+  silently resolved):
+  1. **No `README.md`** at repo root. Not required by SPEC.md's DoD,
+     but a public repo with no README is unusual for anything meant to
+     be presented or shared — worth a short one before the demo.
+  2. **BUILD-ENGINE.md's Tier 2 (local git pre-commit hook)** was
+     discussed conceptually (checkpoints.md, the original CI decision)
+     but never actually implemented — only Tier 1 (CI) exists.
+     `scripts/check.sh` runs on demand and in CI, just not
+     automatically before every local commit.
 
 ## DoD checklist (mirrors SPEC.md)
 

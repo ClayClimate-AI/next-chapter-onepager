@@ -465,3 +465,27 @@ trailing step easy to skip after the "real" commit.
 - This closes C4. SPEC.md's DoD is now fully satisfied or explicitly
   accepted, except the demo-time "explainable in your own words" item,
   which is proven live rather than in advance.
+
+### Repository cleanup + full audit
+
+- Pilot: "clean up the working directory. make sure that all
+  documentations are in respective sub-directories and there's nothing
+  random or loose remaining in the root of the directory and also do
+  the same for the repo. the directory structure locally should match
+  that of the repo as well. Run a full audit on a local level and on a
+  repository level against the specifications." Agent proceeded
+  directly (explicit, detailed instructions already given, not a new
+  design decision needing negotiation).
+- Agent moved BUILD-ENGINE.md, SPEC.md, checkpoints.md, progress.md,
+  reflections.md, and PROMPT_LOG.md into `docs/`, and check.sh into
+  `scripts/`, using `git mv` to preserve history. Updated
+  `.github/workflows/ci.yml`'s script path accordingly, and re-ran
+  `scripts/check.sh` locally post-move to confirm it still passed
+  before committing.
+- Agent ran a full audit: structural DoD (script passes 5/5), scope
+  (no JS, no extra pages, nothing beyond SPEC.md's Outputs), git
+  history integrity (13 commits, no rewrites), working-tree
+  cleanliness, and local-vs-repo structure match. Found two gaps,
+  flagged rather than silently fixed: no `README.md` at repo root, and
+  BUILD-ENGINE.md's Tier 2 local pre-commit hook was discussed but
+  never actually implemented (only Tier 1/CI exists).
