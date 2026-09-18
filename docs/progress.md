@@ -15,8 +15,9 @@
 - **Current gate**: C4 complete, repo reorganized, full audit run (see
   "Repository structure" and "Final audit" below). Post-C4 polish also
   done: `README.md` added (with a P-I-O-F section mapped to the
-  assignment rubric), `BUILD-ENGINE.md` untracked from the repo, and
-  the site deployed live to Netlify. Check-in gate open.
+  assignment rubric), `BUILD-ENGINE.md` untracked from the repo, the
+  site deployed live to Netlify, and `CLAUDE.md` added to orient
+  future Claude Code sessions in this repo. Check-in gate open.
 - **Next single action**: none required by SPEC.md's DoD. Remaining:
   the demo itself (Day 5), where "explainable in your own words" is
   proven live.
@@ -40,6 +41,7 @@ itself and standard root-level config:
 ```
 /
 ├── README.md
+├── CLAUDE.md
 ├── index.html          # the site
 ├── styles.css          # the site's styling
 ├── .gitignore

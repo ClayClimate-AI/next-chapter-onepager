@@ -560,3 +560,20 @@ trailing step easy to skip after the "real" commit.
   had gone stale (missing README, BUILD-ENGINE removal, and the
   Netlify deploy). Separately caught `.netlify/` (local CLI state from
   the deploy) sitting untracked with no `.gitignore` entry — added it.
+- Pilot: "Has the checkpoint.md been updated to reflect the current
+  state and where we're leaving off?" Agent clarified that
+  `checkpoints.md` is the static gate reference by design, not the
+  state tracker — that's `progress.md`'s Snapshot, which was confirmed
+  current. `checkpoints.md`'s own rule text (Step 8) had been updated
+  in the prior commit, which was the part of it that did need to
+  change.
+- Pilot: "Because this was co-collaborative with AI and the model that
+  we used was clawed [claude], let's go ahead and create a clude.md
+  [CLAUDE.md] as well." Agent invoked the `writing-for-agents` skill,
+  then wrote `CLAUDE.md`: the no-JS constraint, a pointer to
+  `docs/SPEC.md`/`checkpoints.md`/`progress.md` as sources of truth
+  rather than restating them, the fold-docs-into-every-commit rule
+  (citing Failure log #3/#4), and three gotchas not discoverable by
+  just looking at the repo (pre-commit hook doesn't auto-activate on
+  clone, Netlify deploy is a manual snapshot not continuous, and
+  `artifacts/`/`BUILD-ENGINE.md` are intentionally untracked).
